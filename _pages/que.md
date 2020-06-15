@@ -3,7 +3,6 @@ layout: page
 title: Que?
 permalink: /que/
 ---
-
 El mundo ya está lo suficientemente lleno de gente que se autoglorifica como para sumar uno más a la multitud.
 1. En Instagram todos son viajeros y espirituales
 2. En twitter todos son sarcásticos y divertidos
