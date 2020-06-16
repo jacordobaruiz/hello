@@ -3,7 +3,6 @@ layout: post
 title "Apropiación Neurocultural"
 categories: General
 ---
-
 Antes de continuar escribiendo quiero aclarar que yo mismo soy una persona neurodivergente; no, no me lo autodiagnositqué. Es algo con lo que he vivido a lo largo de mi vida, o mejor dicho, con lo que he tratado desde que me volví lo suficientemente consciente para notarlo o desde que comenzó a afectarme másde la cuenta.
 
 
