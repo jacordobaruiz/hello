@@ -1,4 +1,4 @@
-----
+---
 layout: post
 title "Apropiación Neurocultural"
 category: nadie lo pidio
