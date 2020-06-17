@@ -11,6 +11,7 @@ El mundo ya está lo suficientemente lleno de gente que se autoglorifica como pa
 5. en tiktok todo el mundo es comediante
 6. Deje de andar diciendo que "pronto todo va a ser normal"
 
+
 ## Proyectos
 
 - [Para los ojos](http://www.bumpaddle.com)
