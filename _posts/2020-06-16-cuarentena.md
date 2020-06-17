@@ -19,12 +19,4 @@ Este es un año extraño y probablemente los venideros sigan siendo extraños, y
 
 Para parafrasear al gran Childish Gambino: los humanos no entenemos, los humanos preferimos vender una mentira.
 
->Humans don't understand, humans will sell a lie
-
-Humans gotta survive, we know we gon' die
-
-Nothing can live forever, you know we gon' try
-
-Life, is it really worth it? 
-
-The algorythm is perfect.
+>Humans don't understand, humans will sell a lie. Humans gotta survive, we know we gon' die. Nothing can live forever, you know we gon' try. Life, is it really worth it? The algorythm is perfect.
