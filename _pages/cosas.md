@@ -1,4 +1,4 @@
-----
+---
 layout: page
 title "Cosas"
 permalink: /cosas/
