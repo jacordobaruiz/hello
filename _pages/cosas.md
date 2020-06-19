@@ -1,6 +1,6 @@
 ---
 layout: page
-title "Cosas"
+title Cosas
 permalink: /cosas/
 ---
 ##Re-posteado por Hi How Are You Project
