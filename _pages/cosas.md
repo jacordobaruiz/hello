@@ -12,3 +12,13 @@ Auto-retrato basado en los cómics de "Peanuts" que hice hace unas semanas el cu
 Póster elegido para ser presentado como parte de la celebración del "Hi, How Are You Day" en enero.
 ![Hi, How Are You Day 2020](https://i.imgur.com/s5bunJ7.png)
 
+## The Big Bald Art Show
+En galería [TheBigBaldArtShow](httt://www.thebigbaldartshow.com)
+
+**Italian Bread** (iPad Pro + Procreate)
+![Italian Bread](https://i.imgur.com/tWSHckh.jpg)
+[Comprar en TheBigBaldArtShow](https://www.thebigbaldartshow.com/product-page/hand-painted-on-ipad)
+
+**Smokeshow** (Pastel sobre papel)
+![Smokeshow](https://i.imgur.com/MjcJhum.jpg)
+[Comprar en TheBigBaldArtShow](https://www.thebigbaldartshow.com/product-page/smokeshow)
