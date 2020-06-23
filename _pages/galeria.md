@@ -15,6 +15,11 @@ Pastel sobre papel
 ![Buddy Holly](https://i.imgur.com/RyjnS0H.jpg)
 <br>
 <br>
+## Story Of An Artist (Daniel Johnston)
+Pastel sobre papel
+![Daniel Johnston](https://i.imgur.com/ubJGlvr.jpg)
+<br>
+<br>
 ## Moonrise Kingdom
 Acuarela sobre papel. Una de mis películas preferidas
 ![Moonrise Kingdom](https://i.imgur.com/ZPyklyy.jpg)
