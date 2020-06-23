@@ -1,4 +1,4 @@
----
+﻿---
 layout: page
 title: Galería
 permalink: /galeria/
@@ -43,3 +43,21 @@ Pastel sobre papel
 ## Nostalgia (Boba Fett)
 Óleo sobre papel
 ![LEGO Boba Fett](https://i.imgur.com/akH6jsT.jpg)
+<br>
+<br>
+## Perro
+Acuarela sobre papel
+![Perro](https://i.imgur.com/x0RJX46.jpg)
+<br>
+<br>
+## Podcats
+Pastel sobre papel
+![Podcats](https://i.imgur.com/N5iuubN.jpg)
+<br>
+<br>
+## Rejected Unknown (Daniel Johnston)
+![Rejected Unknown](https://i.imgur.com/y9hmouV.jpg)
+<br>
+<br>
+## Teorías Conspirativas
+![Teorías Conspirativas](https://i.imgur.com/F5ghXeU.jpg)
