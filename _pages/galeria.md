@@ -3,7 +3,7 @@ layout: page
 title: Galería
 permalink: /galeria/
 ---
-No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el día a día más llevadero. Para motivos de organización lo he agrupado por medios (pastel, óleo, etc...). Estos son los sobrevivientes (y nuevas adiciones) que se encontraban en mi difunto [bumpaddle](bumpaddle.com].
+No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el día a día más llevadero. Para motivos de organización lo he agrupado por medios (pastel, óleo, etc...). Estos son los sobrevivientes (y nuevas adiciones) que se encontraban en mi difunto [bumpaddle](bumpaddle.com).
 
 <summary>Pastel sobre papel</summary>
 <details>
