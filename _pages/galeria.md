@@ -3,13 +3,12 @@ layout: page
 title: Galería
 permalink: /galeria/
 ---
-Aquí es donde todos mis pensamientos perdidos toman forma de (pésimos) dibujos o pinturas y vienen a ser olvidados. Todo lo que considero "menos malo"que valía la pena rescatar de mi innecesaria página de [bumpaddle](http://www.bumpaddle.com) ya que nunca logré arreglar los certificados de seguridad y no tengo la capacidad mental para mantener dos páginas simultáneamente.
+Aquí es donde todos mis pensamientos perdidos toman forma de (pésimos) dibujos o pinturas y vienen a ser olvidados. Todo lo que considero "menos malo"que valía la pena rescatar de mi innecesaria página de [bumpaddle](http://www.bumpaddle.com) ya que nunca logré arreglar los certificados de seguridad y no tengo la capacidad mental para mantener dos páginas simultáneamente. Por motivos de organización he decidido agruparlos por distintos medios (pastel, óleo, acuarela, ect...)
 
 <summary>Prueba</sumary>
   <details>
-## Philadelphia Beer Volcano
-Pastel sobre papel
-![Beer Volcano](https://i.imgur.com/CXnXl0o.jpg)
+  <b>Philadelphia Beer Volcano</b>
+  <img src="https://i.imgur.com/CXnXl0o.jpg"></img>
 <br>
 <br>
 ## Buddy Holly
