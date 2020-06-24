@@ -6,60 +6,58 @@ permalink: /galeria/
 Aquí es donde todos mis pensamientos perdidos toman forma de (pésimos) dibujos o pinturas y vienen a ser olvidados. Todo lo que considero "menos malo"que valía la pena rescatar de mi innecesaria página de [bumpaddle](http://www.bumpaddle.com) ya que nunca logré arreglar los certificados de seguridad y no tengo la capacidad mental para mantener dos páginas simultáneamente. Por motivos de organización he decidido agruparlos por distintos medios (pastel, óleo, acuarela, ect...)
 
 <summary>Prueba</sumary>
-  <details>
-  <b>Philadelphia Beer Volcano</b>
-  <img src="https://i.imgur.com/CXnXl0o.jpg"></img>
+<details>
+<b>Philadelphia Beer Volcano</b>
+<img src="https://i.imgur.com/CXnXl0o.jpg"></img>
 <br>
 <br>
-## Buddy Holly
-Pastel sobre papel
-![Buddy Holly](https://i.imgur.com/RyjnS0H.jpg)
+<b>Are You Banging That Casaba, Frank?</b>
+<img src="https://i.imgur.com/jedEyJ3.jpg"</img>
 <br>
 <br>
-## Story Of An Artist (Daniel Johnston)
-Pastel sobre papel
-![Daniel Johnston](https://i.imgur.com/ubJGlvr.jpg)
+<b>Buddy Holly</b>
+<img src="https://i.imgur.com/RyjnS0H.jpg"></img>
 <br>
 <br>
-## Moonrise Kingdom
-Acuarela sobre papel. Una de mis películas preferidas
-![Moonrise Kingdom](https://i.imgur.com/ZPyklyy.jpg)
+<b>Story Of An Artist (Daniel Johnston)</b>
+<img src="https://i.imgur.com/ubJGlvr.jpg"></img>
 <br>
 <br>
-## Sam Shakusky (Moonrise Kingdom)
-Acuarela sobre papel
-![Sam Shakusky](https://i.imgur.com/5U4DW7T.jpg)
+<b>Ethan Klein (h3h3)</b>
+<img src="https://i.imgur.com/kzCf3vt.jpg"></img>
 <br>
 <br>
-## Are You Banging That Casaba, Frank?
-Pastel sobre papel
-![Casaba](https://i.imgur.com/jedEyJ3.jpg)
-<br>
-<br>
-## Ethan Klein (h3h3)
-Pastel sobre papel
-![Papa Bless](https://i.imgur.com/kzCf3vt.jpg)
-<br>
-<br>
-## Nostalgia (Boba Fett)
-Óleo sobre papel
-![LEGO Boba Fett](https://i.imgur.com/akH6jsT.jpg)
-<br>
-<br>
-## Perro
-Acuarela sobre papel
-![Perro](https://i.imgur.com/x0RJX46.jpg)
-<br>
-<br>
-## Podcats
-Pastel sobre papel
-![Podcats](https://i.imgur.com/N5iuubN.jpg)
-<br>
-<br>
-## Rejected Unknown (Daniel Johnston)
-![Rejected Unknown](https://i.imgur.com/y9hmouV.jpg)
-<br>
-<br>
-## Teorías Conspirativas
-![Teorías Conspirativas](https://i.imgur.com/F5ghXeU.jpg)
+<b>Podcats</b>
+<img src="https://i.imgur.com/N5iuubN.jpg"></img>
 </details>
+
+<summary>Óleo sobre papel</summary>
+<details>
+Nostalgia (Boba Fett)
+<img src="https://i.imgur.com/akH6jsT.jpg"></img>
+</details>
+
+<summary>Acuarela sobre papel</summary>
+<details>
+<b>Moonrise Kingdom</b>
+<img src="https://i.imgur.com/ZPyklyy.jpg"></img>
+<br>
+<br>
+<b>Sam Shakusky (Moonrise Kingdom</b>
+<img src="https://i.imgur.com/5U4DW7T.jpg"</img>
+<br>
+<br>
+<b>Perro</b>
+<img src="https://i.imgur.com/x0RJX46.jpg"></img>
+<br>
+<br>
+<b>Teorías Conspirativas</b>
+<img src="https://i.imgur.com/F5ghXeU.jpg"></img>
+</details>
+
+<summary>Lápices policromáticos sobre papel</summary>
+<details>
+  <b>Rejected Unknown (Daniel Johnston)</b>
+  <img src="https://i.imgur.com/y9hmouV.jpg"></img>
+</details>
+
