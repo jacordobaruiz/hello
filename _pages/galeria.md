@@ -5,6 +5,8 @@ permalink: /galeria/
 ---
 Aquí es donde todos mis pensamientos perdidos toman forma de (pésimos) dibujos o pinturas y vienen a ser olvidados. Todo lo que considero "menos malo"que valía la pena rescatar de mi innecesaria página de [bumpaddle](http://www.bumpaddle.com) ya que nunca logré arreglar los certificados de seguridad y no tengo la capacidad mental para mantener dos páginas simultáneamente.
 
+<summary>Prueba</sumary>
+  <details>
 ## Philadelphia Beer Volcano
 Pastel sobre papel
 ![Beer Volcano](https://i.imgur.com/CXnXl0o.jpg)
@@ -61,3 +63,4 @@ Pastel sobre papel
 <br>
 ## Teorías Conspirativas
 ![Teorías Conspirativas](https://i.imgur.com/F5ghXeU.jpg)
+</details>
