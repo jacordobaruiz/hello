@@ -33,12 +33,12 @@ Aquí es donde todos mis pensamientos perdidos toman forma de (pésimos) dibujos
 <br>
 <summary>Óleo sobre papel</summary>
 <details>
-Nostalgia (Boba Fett)
+ <b>Nostalgia (Boba Fett)</b>
 <img src="https://i.imgur.com/akH6jsT.jpg">
 <br>
 <br>
-  <b>Inocencia</b> (óleo sobre cartón)
-  <img src="https://i.imgur.com/Ze6Lbnl.jpg>
+ <b>Inocencia</b>(óleo sobre cartón)
+ <img src="https://i.imgur.com/Ze6Lbnl.jpg">
 </details>
 <br>
 <summary>Acuarela sobre papel</summary>
@@ -47,7 +47,7 @@ Nostalgia (Boba Fett)
 <img src="https://i.imgur.com/ZPyklyy.jpg">
 <br>
 <br>
-<b>Sam Shakusky (Moonrise Kingdom</b>
+<b>Sam Shakusky (Moonrise Kingdom)</b>
 <img src="https://i.imgur.com/5U4DW7T.jpg">
 <br>
 <br>
