@@ -3,7 +3,7 @@ layout: page
 title: Galería
 permalink: /galeria/
 ---
-Aquí es donde todos mis pensamientos perdidos toman forma de (pésimos) dibujos o pinturas y vienen a ser olvidados. Todo lo que considero "menos malo"que valía la pena rescatar de mi innecesaria página de [bumpaddle](http://www.bumpaddle.com) ya que nunca logré arreglar los certificados de seguridad y no tengo la capacidad mental para mantener dos páginas simultáneamente. Por motivos de organización he decidido agruparlos por distintos medios (pastel, óleo, acuarela, ect...)
+No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el día a día más llevadero. Para motivos de organización lo he agrupado por medios (pastel, óleo, etc...). Estos son los sobrevivientes (y nuevas adiciones) que se encontraban en mi difunto [bumpaddle](bumpaddle.com].
 
 <summary>Pastel sobre papel</summary>
 <details>
