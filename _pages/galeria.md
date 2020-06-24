@@ -35,6 +35,10 @@ Aquí es donde todos mis pensamientos perdidos toman forma de (pésimos) dibujos
 <details>
 Nostalgia (Boba Fett)
 <img src="https://i.imgur.com/akH6jsT.jpg">
+<br>
+<br>
+  <b>Inocencia</b> (óleo sobre cartón)
+  <img src="https://i.imgur.com/Ze6Lbnl.jpg>
 </details>
 <br>
 <summary>Acuarela sobre papel</summary>
@@ -53,6 +57,10 @@ Nostalgia (Boba Fett)
 <br>
 <b>Teorías Conspirativas</b>
 <img src="https://i.imgur.com/F5ghXeU.jpg">
+<br>
+<br>
+<b>Buddy Holly</b>
+<img src="https://i.imgur.com/EhOKSym.jpg">
 </details>
 <br>
 <summary>Lápices policromáticos sobre papel</summary>
