@@ -30,13 +30,13 @@ Aquí es donde todos mis pensamientos perdidos toman forma de (pésimos) dibujos
 <b>Podcats</b>
 <img src="https://i.imgur.com/N5iuubN.jpg">
 </details>
-
+<br>
 <summary>Óleo sobre papel</summary>
 <details>
 Nostalgia (Boba Fett)
 <img src="https://i.imgur.com/akH6jsT.jpg">
 </details>
-
+<br>
 <summary>Acuarela sobre papel</summary>
 <details>
 <b>Moonrise Kingdom</b>
@@ -54,7 +54,7 @@ Nostalgia (Boba Fett)
 <b>Teorías Conspirativas</b>
 <img src="https://i.imgur.com/F5ghXeU.jpg">
 </details>
-
+<br>
 <summary>Lápices policromáticos sobre papel</summary>
 <details>
   <b>Rejected Unknown (Daniel Johnston)</b>
