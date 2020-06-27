@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cosas que he aprendido durante la cuarentena"
-category: General
+category: Opinión
 ---
 
 Dejando de lado las razones por las cuales nos encontramos (bueno, asumiendo que usted también sea moderadamente responsable) confinados en nuestros cuartos, ha sido para muchas personas un tiempo para practicar la introspección y tal vez aprender una que otra cosa nueva.
