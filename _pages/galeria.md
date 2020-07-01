@@ -39,6 +39,10 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <br>
  <b>Inocencia</b>(óleo sobre cartón)
  <img src="https://i.imgur.com/Ze6Lbnl.jpg">
+ <br>
+ <br>
+ <b>Head Full Of Hyenas</b> (animada)
+ <a href="https://streamable.com/7sqokn><img src="http://u.cubeupload.com/burtmacklin/F84424E9483D4846BE14.jpeg></a>
 </details>
 <br>
 <summary>Acuarela sobre papel</summary>
