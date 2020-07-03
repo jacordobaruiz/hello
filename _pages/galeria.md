@@ -33,7 +33,7 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <br>
 <summary>Óleo sobre papel</summary>
 <details>
-<b>LEGO Red Hood</b>  
+<b>Un mal día (LEGO Red Hood)</b>  
 <img src="/images/up/redhood.jpeg">
 <br>
 <br>
