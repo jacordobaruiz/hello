@@ -34,7 +34,7 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <summary>Óleo sobre papel</summary>
 <details>
 <b>LEGO Red Hood</b>
-<img src="https://i.imgur.com/xgZ4JfJ_d.jpg>
+<img src="https://i.imgur.com/xgZ4JfJ_d.jpg">
 <br>
 <br>
  <b>Nostalgia (Boba Fett)</b>
