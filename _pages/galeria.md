@@ -33,6 +33,13 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <br>
 <summary>Óleo sobre papel</summary>
 <details>
+<b>Odín El Gato Amigable</b>
+<img src="/images/up/octfc.jpeg">
+<br>
+<b>Mighty Beanz</b>
+<img src="/images/up/mmb.jpeg">
+<br>
+<br>
 <b>Un mal día (LEGO Red Hood)</b>  
 <img src="/images/up/redhood.jpeg">
 <br>
