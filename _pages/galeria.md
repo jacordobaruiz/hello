@@ -15,7 +15,7 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <img src="/images/up/larrydavidp.jpeg">
 <br>
 <br>
-<b>Danny DeVito comiendo un pretzel y juzgando</b>
+<b>Danny DeVito comiendo un pretzel</b>
 <img src="/images/up/frankreynoldspretzel.jpeg>
 <br>
 <br>
