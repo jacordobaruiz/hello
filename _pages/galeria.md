@@ -52,6 +52,10 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <img src="/images/up/mmb.jpeg">
 <br>
 <br>
+<b>Spider-Man con un giro clasico(LEGO)</b>
+<img src="/images/up/galeria/legosmclasico.jpg">
+<br>
+<br>
 <b>Un mal día (LEGO Red Hood)</b>  
 <img src="/images/up/redhood.jpeg">
 <br>
