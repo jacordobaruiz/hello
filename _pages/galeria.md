@@ -67,7 +67,7 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
  <b>Muerto por dentro (óleo sobre cartón)
  <img src="/images/up/skelego.jpeg">
 </details>
-<br>
+
 <summary>Acuarela sobre papel</summary>
 <details>
 <b>Moonrise Kingdom</b>
