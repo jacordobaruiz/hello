@@ -11,6 +11,14 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <img src="https://i.imgur.com/CXnXl0o.jpg">
 <br>
 <br>
+<b>Larry David</b>
+<img src="/images/up/larrydavidp.jpeg">
+<br>
+<br>
+<b>Danny DeVito comiendo un pretzel y juzgando</b>
+<img src="/images/up/frankreynoldspretzel.jpeg>
+<br>
+<br>
 <b>Are You Banging That Casaba, Frank?</b>
 <img src="https://i.imgur.com/jedEyJ3.jpg">
 <br>
@@ -33,6 +41,10 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <br>
 <summary>Óleo sobre papel</summary>
 <details>
+<b>Moonrise Kingdom</b>
+<img src="/images/up/mkoil.jpg">
+<br>
+<br>
 <b>Odín El Gato Amigable</b>
 <img src="/images/up/octfc.jpeg">
 <br>
@@ -50,6 +62,10 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <br>
  <b>Inocencia</b>(óleo sobre cartón)
  <img src="https://i.imgur.com/Ze6Lbnl.jpg">
+ <br>
+ <br>
+ <b>Muerto por dentro (óleo sobre cartón)
+ <img src="/images/up/skelego.jpeg">
 </details>
 <br>
 <summary>Acuarela sobre papel</summary>
