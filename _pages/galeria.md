@@ -94,5 +94,9 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <details>
   <b>Rejected Unknown (Daniel Johnston)</b>
   <img src="https://i.imgur.com/y9hmouV.jpg">
+<br>
+<br>
+<b>Somebody bring me the horizon cause this view is boring me</b>
+<img src="/images/up/galeria/bmthlapiz.jpg">
 </details>
 
