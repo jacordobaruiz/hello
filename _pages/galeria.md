@@ -57,7 +57,7 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <br>
 <br>
 <b>Un mal día (LEGO Red Hood)</b>  
-<img src="/images/up/redhood.jpeg">
+<img src="http://u.cubeupload.com/josecordoba/redhoodLEGO.jpg">
 <br>
 <br>
  <b>Nostalgia (Boba Fett)</b>
@@ -71,8 +71,10 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
  <b>Muerto por dentro (óleo sobre cartón)</b>
  <img src="/images/up/skelego.jpeg">
 </details>
+
 <br>
 <summary>Acuarela sobre papel</summary>
+
 <details>
 <b>Moonrise Kingdom</b>
 <img src="https://i.imgur.com/ZPyklyy.jpg">
