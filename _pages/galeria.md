@@ -84,6 +84,10 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <img src="https://i.imgur.com/5U4DW7T.jpg">
 <br>
 <br>
+<b>2020</b>
+<img src="/images/up/galeria/mascarilla.jpg">
+<br>
+<br>
 <b>Perro</b>
 <img src="https://i.imgur.com/x0RJX46.jpg">
 <br>
