@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Vincent Van Not"
+title: "La vista desde la tarde"
 category: Pintura
 ---
 Lo que llaman "en plain air" (creo, la verdad no me moleste en buscar el termino). Pudo ser peor... creo.

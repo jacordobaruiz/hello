@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hay que mantenerlo saludable"
+title: "Mantenerse saludable"
 category: Pintura
 ---
 Pongase una mascarilla, idiota.
