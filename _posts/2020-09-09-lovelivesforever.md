@@ -4,7 +4,7 @@ title: "LOVE LIVES FOREVER"
 category: Musica
 ---
 Viernes 11/9/20 00:00  
-![Love Lives Forever](/images/up/posts/tracks.jpeg)  
+![Love Lives Forever](/images/up/posts/lovelivesforever.jpegg)  
   
 1. Casper The Friendly Ghost
 2. Funeral Home
@@ -17,4 +17,5 @@ Viernes 11/9/20 00:00
 9. Walking The Cow
 10. Worried Shoes  
   
-Un año haciéndose... uno esperaría algo más. Proximamente disponible en todas las pla— sea necio. Aquí lo puede descargar y ya.
+Un año haciéndose... uno esperaría algo más. Proximamente disponible en todas las pla— sea necio. 
+[Aquí](http://www.bumpaddle.com] lo puede descargar y ya.
