@@ -18,4 +18,4 @@ Viernes 11/9/20 00:00
 10. Worried Shoes  
   
 Un año haciéndose... uno esperaría algo más. Proximamente disponible en todas las pla— sea necio. 
-[Aqui](http://www.bumpaddle.com] lo puede descargar y ya.
+[Aqui](http://www.bumpaddle.com) lo puede descargar y ya.
