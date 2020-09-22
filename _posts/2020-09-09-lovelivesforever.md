@@ -4,7 +4,7 @@ title: "LOVE LIVES FOREVER"
 category: Musica
 ---
 Viernes 11/9/20 00:00  
-![Love Lives Forever](/images/up/posts/lovelivesforever.jpegg)  
+![Love Lives Forever](/images/up/posts/lovelivesforever.jpeg)  
   
 1. Casper The Friendly Ghost
 2. Funeral Home
