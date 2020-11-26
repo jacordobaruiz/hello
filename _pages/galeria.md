@@ -41,6 +41,10 @@ No se dibujar ni pintar, soy un iliterato artísticamente hablando, pero hace el
 <br>
 <summary>Óleo sobre papel</summary>
 <details>
+<b>Happiness (Dance Gavin Dance)</b>
+<img src="/images/up/posts/happiness.jpeg">
+<br>
+<br>
 <b>Moonrise Kingdom</b>
 <img src="/images/up/mkoil.jpg">
 <br>
