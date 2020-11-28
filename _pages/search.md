@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Buscar
+title: Search
 permalink: /search/
 ---
 
 <div id="search-container">
-    <input type="text" id="search-input" placeholder="Buscar en el desorden...">
+    <input type="text" id="search-input" placeholder="Search this mess...">
     <ul id="results-container"></ul>
 </div>
 

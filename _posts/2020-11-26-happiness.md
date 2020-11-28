@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "happiness"
-category: Pintura
+title: "Spooks"
+category: Oil
 ---
-Cubierta reimaginada del album de Dance Gavin Dance
 ![Happiness](/images/up/posts/happiness.jpeg)
