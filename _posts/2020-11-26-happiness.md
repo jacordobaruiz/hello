@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Spooks"
+title: "Happiness"
 category: Oil
 ---
 ![Happiness](/images/up/posts/happiness.jpeg)
