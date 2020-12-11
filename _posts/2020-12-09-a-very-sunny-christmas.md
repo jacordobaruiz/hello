@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Very Sunny Christmas"
+title: "A Mando Christmas"
 category: Digital
 ---
-![A Very Sunny Christmas](/images/up/art/digital/averysunnychristmas.jpeg)
+![A Mando Christmas](/images/up/art/digital/amandochristmas.png)
