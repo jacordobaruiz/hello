@@ -1,8 +1,9 @@
 ---
-layout:post
+layout: post
 title: "Apollo On Canvas"
 category: Others
 ---
+
 ![Apollo On Canvas](/images/up/art/oil/apollooncanvas.png)
 
 
