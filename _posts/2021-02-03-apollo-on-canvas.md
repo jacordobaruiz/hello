@@ -13,4 +13,4 @@ Homescreen view:
 ![Homescreen](/images/up/posts/hs1.png)
 
 Zoomed in:
-![Homescreen](/images/up/posts/hs2.png)
+![Homescreen](/images/up/posts/hs2.jpeg)
