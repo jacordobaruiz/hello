@@ -11,3 +11,7 @@ The Bullet, oil on canvas
 
 Toadstool, oil on canvas
 ![Toadstool](/images/up/art/oil/toadstool.jpeg)
+
+Basic Gungead Anatomy Illustrated, pixel art
+![Basic Gungead Anatomy Illustrated](/images/up/art/pixel/bgai.jpeg
+
