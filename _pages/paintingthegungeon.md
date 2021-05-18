@@ -7,15 +7,12 @@ The Bullet, Posca on canvas
 ![The Bullet](/images/up/art/posca/thebullet.jpeg)
 
 Bandana Bullet Kin, Posca on canvas
-
 ![Bandana Bullet Kin](/images/up/art/posca/bandanabulletkin.jpeg)
 
 Bullet Kin (With Pizza), Posca on canvas
-
 ![Bullet Kin (With Pizza)](/images/up/art/posca/bulletkinwp.jpeg)
 
 Blue Shotgun Kin, Posca on canvas
-
 ![Blue Shotgun Kin](/images/up/art/posca/blueshotgunkin.jpeg)
 
 The Bullet, oil on canvas
