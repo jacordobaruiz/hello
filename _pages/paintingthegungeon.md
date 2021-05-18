@@ -25,7 +25,6 @@ Toadstool, oil on canvas
 ![Toadstool](/images/up/art/oil/toadstool.jpeg)
 
 The Robot, pastels on sketchbook
-
 ![The Robot)](/images/up/art/pastel/therobot.jpeg)
 
 Basic Gungead Anatomy Illustrated, pixel art
