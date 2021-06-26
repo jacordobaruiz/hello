@@ -20,7 +20,10 @@ The Bullet, oil on canvas
 
 Toadstool, oil on canvas
 ![Toadstool](/images/up/art/oil/toadstool.jpeg)
-
+ 
+Ser Junkan, pastels on sketchbook
+![Ser Junkan](/images/up/art/pastel/serjunkan.png)
+        
 The Robot, pastels on sketchbook
 ![The Robot)](/images/up/art/pastel/therobot.jpeg)
 
