@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>you shouldn't be here</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 8vw;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 4.5vw;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
+
+    a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    .sprite-container {
+      position: absolute;
+      bottom: 1rem;
+      height: 96px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sprite-container img {
+      image-rendering: pixelated;
+      width: 64px;
+      height: 64px;
+      opacity: 0.85;
+      animation: flicker 1.5s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0.85; }
+      45% { opacity: 0.4; }
+      50% { opacity: 1; }
+      55% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body>
+  <h1>welcome</h1>
+  <p>all previous content has been archived, but it's easy to find. 100% kanto/johto/hoenn dex, 7/7 battle frontier symbols, shiny count: 8.</p>
+
+  <div class="sprite-container">
+    <img id="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png" alt="Charmander">
+  </div>
+
+  <script>
+    const shinySprites = [
+      {
+        name: "Charmander",
+        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png"
+      },
+      {
+        name: "Cyndaquil",
+        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/155.png"
+      },
+      {
+        name: "Eevee",
+        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/133.png"
+      }
+    ];
+
+    let index = 0;
+    const sprite = document.getElementById("sprite");
+
+    setInterval(() => {
+      index = (index + 1) % shinySprites.length;
+      sprite.src = shinySprites[index].url;
+      sprite.alt = shinySprites[index].name;
+    }, 2000);
+  </script>
+</body>
+</html>
