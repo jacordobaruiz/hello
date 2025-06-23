@@ -7,18 +7,16 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 2rem;
       background-color: #000;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 2rem;
-      position: relative;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     h1 {
@@ -28,7 +26,6 @@
 
     p {
       font-size: 4.5vw;
-      max-width: 800px;
       text-align: center;
     }
 
@@ -36,6 +33,7 @@
       h1 {
         font-size: 3rem;
       }
+
       p {
         font-size: 1.5rem;
       }
@@ -51,8 +49,10 @@
     }
 
     .sprite-container {
-      position: absolute;
+      position: fixed;
       bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
       height: 96px;
       display: flex;
       justify-content: center;
@@ -76,26 +76,44 @@
   </style>
 </head>
 <body>
-  <h1>welcome</h1>
-  <p>found a shiny and got pokerus in Pokemon Emerald, full odds, same session full odds (1/179000000). 100% kanto/johto/hoenn dex, 7/7, shiny count: 9.</p>
+  <main>
+    <h1>welcome</h1>
+    <p>found a shiny and got pokerus in Pokemon Emerald, full odds, same session full odds (1/179000000). 100% kanto/johto/hoenn dex, 7/7, shiny count: 9.</p>
+  </main>
 
   <div class="sprite-container">
-    <img id="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png" alt="Charmander">
+    <img id="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/197.png" alt="Umbreon">
   </div>
 
   <script>
     const shinySprites = [
       {
-        name: "Charmander",
-        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png"
+        name: "Umbreon",
+        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/197.png"
       },
       {
-        name: "Cyndaquil",
-        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/155.png"
+        name: "Espeon",
+        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/196.png"
       },
       {
-        name: "Eevee",
-        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/133.png"
+        name: "Sceptile",
+        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/254.png"
+      },
+      {
+        name: "Typhlosion",
+        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/157.png"
+      },
+      {
+        name: "Spinda",
+        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/327.png"
+      },
+      {
+        name: "Manectric",
+        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/310.png"
+      },
+      {
+        name: "Charizard",
+        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/6.png"
       }
     ];
 
