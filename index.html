@@ -47,32 +47,6 @@
     a:hover {
       color: #fff;
     }
-
-    .sprite-container {
-      position: fixed;
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 96px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .sprite-container img {
-      image-rendering: pixelated;
-      width: 64px;
-      height: 64px;
-      opacity: 0.85;
-      animation: flicker 1.5s infinite;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 0.85; }
-      45% { opacity: 0.4; }
-      50% { opacity: 1; }
-      55% { opacity: 0.4; }
-    }
   </style>
 </head>
 <body>
@@ -82,21 +56,5 @@
   <br>
   <img src="images/signal-2025-06-22-21-11-40-910.jpg" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
 </main>
-
-  <div class="sprite-container">
-    <img id="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/197.png" alt="Umbreon">
-  </div>
-
-  <script>
-    const shinySprites = [
-      {
-        name: "Umbreon",
-        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/197.png"
-      },
-      {
-        name: "Espeon",
-        url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/196.png"
-      },
-      {
-        name: "Sceptile",
-        url: "
+</body>
+</html>
