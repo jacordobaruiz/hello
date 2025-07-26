@@ -47,12 +47,87 @@
     a:hover {
       color: #fff;
     }
+
+    #shinyList {
+      display: none;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .shiny-entry {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin: 0.4rem 0;
+      font-size: 1.2rem;
+    }
+
+    .shiny-entry img {
+      width: 32px;
+      height: 32px;
+      image-rendering: pixelated;
+    }
+
+    button {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.5rem 1.5rem;
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
   </style>
+  <script>
+    function toggleShinyList() {
+      const list = document.getElementById("shinyList");
+      list.style.display = list.style.display === "none" ? "block" : "none";
+    }
+  </script>
 </head>
 <body>
 <main>
   <h1 align=center>(un)welcome</h1>
   <p>found a shiny and got pokerus in Pokemon Emerald, full odds, same session (1/179000000).<br>100% kanto/johto/hoenn dex <br>shiny count: 10</p>
+
+  <button onclick="toggleShinyList()">open shiny list</button>
+  <div id="shinyList">
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/typhlosion.png" alt="Typhlosion">Typhlosion
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/charizard.png" alt="Charizard">Charizard
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/sceptile.png" alt="Sceptile">Sceptile
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/umbreon.png" alt="Umbreon">Umbreon
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/espeon.png" alt="Espeon">Espeon
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/spinda.png" alt="Spinda">Spinda
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/banette.png" alt="Banette">Banette
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/manectric.png" alt="Manectric">Manectric
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/black-white/shiny/amoonguss.png" alt="Amoonguss">Amoonguss
+    </div>
+  </div>
+
   <br>
   <img src="images/signal-2025-06-22-21-11-40-910.jpg" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
 </main>
