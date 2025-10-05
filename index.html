@@ -22,6 +22,7 @@
     h1 {
       font-size: 8vw;
       margin-bottom: 1rem;
+      text-align: center;
     }
 
     p {
@@ -79,25 +80,22 @@
       border-radius: 5px;
       font-size: 1rem;
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent; /* prevents extra tap delay */
     }
 
     button:hover {
       background-color: #444;
     }
   </style>
-  <script>
-    function toggleShinyList() {
-      const list = document.getElementById("shinyList");
-      list.style.display = list.style.display === "none" ? "block" : "none";
-    }
-  </script>
 </head>
 <body>
 <main>
-  <h1 align=center>the robot with cat fur</h1>
+  <h1>the robot with cat fur</h1>
   <p>100% kanto/johto/hoenn dex<br></p>
 
-  <button onclick="toggleShinyList()">double tap to see my shinies</button>
+  <!-- Removed inline onclick -->
+  <button id="spoilerButton">tap to see my shinies</button>
+
   <div id="shinyList">
     <div class="shiny-entry">
       <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/typhlosion.png" alt="Typhlosion">Typhlosion
@@ -131,5 +129,17 @@
   <br>
   <img src="images/signal-2025-06-22-21-11-40-910.jpg" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
 </main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById("spoilerButton");
+    const list = document.getElementById("shinyList");
+
+    button.addEventListener("click", (e) => {
+      e.preventDefault(); // stops focus weirdness on mobile
+      list.style.display = (list.style.display === "none" || list.style.display === "") ? "block" : "none";
+    });
+  });
+</script>
 </body>
 </html>
