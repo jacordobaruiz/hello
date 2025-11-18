@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOU SHOULDN'T BE HERE</title>
+  
+  <!-- Import Pixel Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #121212;
+      --screen-bg: #0a0f0a;
+      --terminal-green: #4af626;
+      --terminal-dim: #1a4f1a;
+      --accent-color: #ff0055;
+      --text-color: #e0e0e0;
+      --card-bg: #1a1c24;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'VT323', monospace;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    /* CRT Scanline Overlay Effect */
+    body::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 2px, 3px 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    main {
+      width: 90%;
+      max-width: 800px;
+      background-color: var(--screen-bg);
+      border: 4px solid #333;
+      box-shadow: 0 0 20px rgba(74, 246, 38, 0.2);
+      padding: 2rem;
+      position: relative;
+      margin: 2rem 0;
+      border-radius: 10px;
+    }
+
+    /* Header Styles */
+    h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      color: var(--terminal-green);
+      text-transform: uppercase;
+      text-shadow: 2px 2px 0px #000;
+      line-height: 1.4;
+    }
+
+    p {
+      font-size: 1.5rem;
+      text-align: center;
+      color: #aaa;
+      margin-bottom: 2rem;
+      border-bottom: 2px dashed var(--terminal-dim);
+      padding-bottom: 1rem;
+    }
+
+    /* Retro Button */
+    button {
+      display: block;
+      margin: 0 auto 2rem auto;
+      padding: 1rem 2rem;
+      background-color: transparent;
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.1s;
+      box-shadow: 4px 4px 0px var(--accent-color);
+      position: relative;
+    }
+
+    button:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px var(--accent-color);
+      background-color: rgba(255, 0, 85, 0.1);
+    }
+
+    button:active {
+      transform: translate(4px, 4px);
+      box-shadow: none;
+    }
+
+    /* Shiny Grid Layout */
+    #shinyList {
+      display: none; /* Hidden by default */
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #shinyList.visible {
+      display: grid;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Pokemon Card Styling */
+    .shiny-entry {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--card-bg);
+      border: 2px solid #333;
+      padding: 1rem;
+      border-radius: 4px;
+      position: relative;
+      transition: transform 0.2s;
+    }
+
+    .shiny-entry:hover {
+      border-color: var(--terminal-green);
+      transform: translateY(-5px);
+    }
+
+    .shiny-entry img {
+      width: 64px;
+      height: 64px;
+      image-rendering: pixelated;
+      /* Idle Animation */
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .shiny-name {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    /* Badge style for dex number or type (Optional decorative element) */
+    .shiny-entry::before {
+      content: "PKMN";
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      font-size: 0.6rem;
+      color: #555;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    /* Image Container */
+    .bottom-image-container {
+      margin-top: 3rem;
+      border: 4px solid #fff;
+      padding: 5px;
+      background: #000;
+      transform: rotate(-1deg);
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    }
+
+    .bottom-image-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: grayscale(20%) contrast(120%);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 20px;
+      background-color: var(--terminal-green);
+      animation: blink 1s infinite;
+      vertical-align: middle;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.2rem; }
+      p { font-size: 1.2rem; }
+      #shinyList { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <!-- Glitchy header title -->
+  <h1>THE ROBOT WITH CAT FUR</h1>
+  <p>> STATUS: 100% KANTO/JOHTO/HOENN DEX <span class="cursor"></span></p>
+
+  <button id="spoilerButton">ACCESS STORAGE SYSTEM</button>
+
+  <div id="shinyList">
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/typhlosion.png" alt="Typhlosion">
+      <span class="shiny-name">Typhlosion</span>
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/charizard.png" alt="Charizard">
+      <span class="shiny-name">Charizard</span>
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/sceptile.png" alt="Sceptile">
+      <span class="shiny-name">Sceptile</span>
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/umbreon.png" alt="Umbreon">
+      <span class="shiny-name">Umbreon</span>
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/espeon.png" alt="Espeon">
+      <span class="shiny-name">Espeon</span>
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/spinda.png" alt="Spinda">
+      <span class="shiny-name">Spinda</span>
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/banette.png" alt="Banette">
+      <span class="shiny-name">Banette</span>
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/heartgold-soulsilver/shiny/manectric.png" alt="Manectric">
+      <span class="shiny-name">Manectric</span>
+    </div>
+    <div class="shiny-entry">
+      <img src="https://img.pokemondb.net/sprites/black-white/shiny/amoonguss.png" alt="Amoonguss">
+      <span class="shiny-name">Amoonguss</span>
+    </div>
+  </div>
+
+  <div class="bottom-image-container">
+    <!-- Ensure this path is correct relative to your HTML file -->
+    <img src="images/signal-2025-06-22-21-11-40-910.jpg" alt="Trainer Card Image">
+  </div>
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById("spoilerButton");
+    const list = document.getElementById("shinyList");
+
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      
+      if (list.classList.contains("visible")) {
+        list.classList.remove("visible");
+        setTimeout(() => {
+           list.style.display = "none";
+        }, 500); // Wait for fade out animation
+        button.innerText = "ACCESS STORAGE SYSTEM";
+        button.style.borderColor = "#ff0055";
+        button.style.color = "#ff0055";
+      } else {
+        list.style.display = "grid";
+        // Small delay to allow CSS transition to catch the display change
+        setTimeout(() => {
+          list.classList.add("visible");
+        }, 10);
+        button.innerText = "CLOSE STORAGE";
+        button.style.borderColor = "#4af626"; // Change to green when open
+        button.style.color = "#4af626";
+      }
+    });
+  });
+</script>
+</body>
+</html>
