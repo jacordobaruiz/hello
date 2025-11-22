@@ -14,7 +14,7 @@
         :root {
             --bg: #000000;
             --fg: #FFFFFF;
-            --grid-line: 1px solid #333; /* Líneas sutiles para la grilla de pokes */
+            --grid-line: 1px solid #333;
         }
 
         * {
@@ -29,7 +29,7 @@
             color: var(--fg);
             font-family: 'DotGothic16', monospace;
             font-size: 18px;
-            overflow: hidden; /* Sin scroll en la home principal */
+            overflow: hidden; 
             text-transform: uppercase;
             -webkit-font-smoothing: none;
             height: 100vh;
@@ -37,31 +37,40 @@
         }
 
         a { text-decoration: none; color: inherit; cursor: pointer; }
-        button { background: none; border: none; color: inherit; font-family: inherit; font-size: inherit; cursor: pointer; text-transform: uppercase; }
+        button { background: none; border: none; color: inherit; font-family: inherit; font-size: inherit; cursor: pointer; text-transform: uppercase; transition: opacity 0.2s;}
+        button:hover { opacity: 0.6; }
 
         /* --- NAVEGACIÓN FIJA (Esquinas) --- */
         .nav-fixed {
             position: fixed;
-            z-index: 300; /* Por encima de todo */
+            z-index: 300; 
             padding: 0;
         }
 
         .top-left { top: 0; left: 0; }
-        .top-right { top: 0; right: 0; text-align: right; }
+        
+        /* Ajuste para múltiples botones en la derecha */
+        .top-right { 
+            top: 0; 
+            right: 0; 
+            text-align: right; 
+            display: flex;
+            gap: 20px; /* Espacio entre botones */
+        }
+        
         .bottom-left { bottom: 0; left: 0; }
         .bottom-right { bottom: 0; right: 0; }
 
         .blink { animation: blinker 1.5s step-end infinite; }
         @keyframes blinker { 50% { opacity: 0; } }
 
-        /* --- CONTENIDO PRINCIPAL (Home) --- */
+        /* --- CONTENIDO PRINCIPAL --- */
         main {
             display: flex;
             flex-direction: column;
             justify-content: center;
             height: 100%;
             width: 100%;
-            transition: opacity 0.5s;
         }
 
         .project-row {
@@ -84,33 +93,33 @@
             padding-right: 10px;
         }
 
-        /* --- OVERLAY DE POKEMON (Oculto por defecto) --- */
-        #shiny-overlay {
+        /* --- CLASES GENERALES PARA OVERLAYS --- */
+        .overlay-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-color: var(--bg);
-            z-index: 200; /* Entre el main y el nav */
+            z-index: 200;
             display: flex;
             flex-direction: column;
-            transform: translateY(-100%); /* Escondido arriba */
+            transform: translateY(-100%); /* Oculto arriba */
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            overflow-y: auto; /* Permite scroll si hay muchos pokes */
+            overflow-y: auto;
+            padding-top: 60px; /* Espacio para no tapar el menú */
         }
 
-        #shiny-overlay.active {
-            transform: translateY(0); /* Baja al activarse */
+        .overlay-screen.active {
+            transform: translateY(0);
         }
 
-        /* Estilo de la Grilla Pokemon */
+        /* --- ESTILOS ESPECÍFICOS: SHINIES --- */
         .poke-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             width: 100%;
             border-top: var(--grid-line);
-            margin-top: 60px; /* Espacio para el botón de cerrar */
         }
 
         .poke-item {
@@ -128,13 +137,13 @@
             width: 60%;
             height: 60%;
             object-fit: contain;
-            filter: grayscale(100%) contrast(1.2); /* B/N por defecto */
+            filter: grayscale(100%) contrast(1.2);
             transition: filter 0.3s;
-            image-rendering: pixelated; /* Mantiene el pixel art nítido */
+            image-rendering: pixelated;
         }
 
         .poke-item:hover img {
-            filter: grayscale(0%) drop-shadow(0 0 5px rgba(255,255,255,0.5)); /* Color al hover */
+            filter: grayscale(0%) drop-shadow(0 0 5px rgba(255,255,255,0.5));
         }
 
         .poke-name {
@@ -145,12 +154,41 @@
             opacity: 0.5;
         }
 
+        /* --- ESTILOS ESPECÍFICOS: LOGROS --- */
+        .logros-list {
+            width: 100%;
+            border-top: var(--grid-line);
+        }
+
+        .logro-item {
+            width: 100%;
+            padding: 30px 10px;
+            border-bottom: var(--grid-line);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .logro-title {
+            font-size: 2rem;
+        }
+
+        .logro-bar {
+            font-family: monospace;
+            opacity: 0.5;
+            letter-spacing: 2px;
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .project-row { flex-direction: column; padding: 20px 0; }
             .project-name { font-size: 3rem; }
-            .nav-fixed, .project-row { padding-left: 5px; padding-right: 5px; }
-            .poke-grid { grid-template-columns: repeat(3, 1fr); } /* 3 columnas en móvil */
+            .nav-fixed, .project-row, .logro-item { padding-left: 5px; padding-right: 5px; }
+            .poke-grid { grid-template-columns: repeat(3, 1fr); }
+            
+            /* Ajuste menú móvil */
+            .top-right { gap: 10px; font-size: 0.9rem; }
+            .logro-title { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -160,90 +198,97 @@
     <div class="nav-fixed top-left">?<span class="blink">_</span></div>
     
     <div class="nav-fixed top-right">
-        <!-- Botón que activa el Overlay -->
-        <button onclick="toggleShinies()" id="menu-btn">[ SHINIES + ]</button>
+        <!-- Botones de Navegación -->
+        <button onclick="toggleOverlay('logros')" id="btn-logros">[ LOGROS + ]</button>
+        <button onclick="toggleOverlay('shinies')" id="btn-shinies">[ SHINIES + ]</button>
     </div>
 
     <div class="nav-fixed bottom-left">INDEX</div>
     <div class="nav-fixed bottom-right">©2025</div>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main id="main-content">
-        <b>CUENTAS</b>
+    <!-- CONTENIDO PRINCIPAL (HOME) -->
+    <main>
         <a href="https://bsky.app/profile/jacr.bsky.social" target="_blank" class="project-row">
             <span class="project-name">BLUESKY</span>
-            <span class="project-cat">"Oficial"</span>
+            <span class="project-cat">SOCIAL / PROFILE</span>
         </a>
     </main>
 
-    <!-- OVERLAY DE POKEMON -->
-    <div id="shiny-overlay">
+    <!-- 1. OVERLAY DE POKEMON (SHINIES) -->
+    <div id="overlay-shinies" class="overlay-screen">
         <div class="poke-grid">
+            <!-- Pokes -->
+            <div class="poke-item"><span class="poke-name">006</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/6.png" alt="Charizard"></div>
+            <div class="poke-item"><span class="poke-name">025</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png" alt="Pikachu"></div>
+            <div class="poke-item"><span class="poke-name">094</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/94.png" alt="Gengar"></div>
+            <div class="poke-item"><span class="poke-name">130</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/130.png" alt="Gyarados"></div>
+            <div class="poke-item"><span class="poke-name">150</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/150.png" alt="Mewtwo"></div>
+            <div class="poke-item"><span class="poke-name">249</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/249.png" alt="Lugia"></div>
+        </div>
+    </div>
+
+    <!-- 2. OVERLAY DE LOGROS -->
+    <div id="overlay-logros" class="overlay-screen">
+        <div class="logros-list">
             
-            <!-- POKE 1 -->
-            <div class="poke-item">
-                <span class="poke-name">006</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/6.png" alt="Charizard">
+            <!-- Logro 1 -->
+            <div class="logro-item">
+                <div class="logro-title">KANTO DEX</div>
+                <div class="logro-bar">[////////////////////] 100% COMPLETE</div>
             </div>
 
-            <!-- POKE 2 -->
-            <div class="poke-item">
-                <span class="poke-name">025</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png" alt="Pikachu">
+            <!-- Logro 2 -->
+            <div class="logro-item">
+                <div class="logro-title">JOHTO DEX</div>
+                <div class="logro-bar">[////////////////////] 100% COMPLETE</div>
             </div>
 
-            <!-- POKE 3 -->
-            <div class="poke-item">
-                <span class="poke-name">094</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/94.png" alt="Gengar">
-            </div>
-
-            <!-- POKE 4 -->
-            <div class="poke-item">
-                <span class="poke-name">130</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/130.png" alt="Gyarados">
-            </div>
-
-            <!-- POKE 5 -->
-            <div class="poke-item">
-                <span class="poke-name">150</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/150.png" alt="Mewtwo">
-            </div>
-
-            <!-- POKE 6 -->
-            <div class="poke-item">
-                <span class="poke-name">249</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/249.png" alt="Lugia">
-            </div>
-
-            <!-- POKE 7 (Relleno para demo) -->
-            <div class="poke-item">
-                <span class="poke-name">384</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/384.png" alt="Rayquaza">
-            </div>
-             <!-- POKE 8 (Relleno para demo) -->
-             <div class="poke-item">
-                <span class="poke-name">448</span>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/448.png" alt="Lucario">
+            <!-- Logro 3 -->
+            <div class="logro-item">
+                <div class="logro-title">HOENN DEX</div>
+                <div class="logro-bar">[////////////////////] 100% COMPLETE</div>
             </div>
 
         </div>
     </div>
 
-    <!-- JAVASCRIPT PARA ABRIR/CERRAR -->
+    <!-- LOGICA JAVASCRIPT -->
     <script>
-        function toggleShinies() {
-            const overlay = document.getElementById('shiny-overlay');
-            const btn = document.getElementById('menu-btn');
+        function toggleOverlay(type) {
+            const shiniesOverlay = document.getElementById('overlay-shinies');
+            const logrosOverlay = document.getElementById('overlay-logros');
             
-            // Si la clase 'active' está presente, la quitamos (Cerrar)
-            if (overlay.classList.contains('active')) {
-                overlay.classList.remove('active');
-                btn.innerText = "[ SHINIES + ]";
-            } else {
-                // Si no está, la ponemos (Abrir)
-                overlay.classList.add('active');
-                btn.innerText = "[ X CERRAR ]";
+            const btnShinies = document.getElementById('btn-shinies');
+            const btnLogros = document.getElementById('btn-logros');
+
+            if (type === 'shinies') {
+                // Si Shinies ya está abierto, cerrarlo
+                if (shiniesOverlay.classList.contains('active')) {
+                    shiniesOverlay.classList.remove('active');
+                    btnShinies.innerText = "[ SHINIES + ]";
+                } else {
+                    // Abrir Shinies, cerrar Logros si está abierto
+                    shiniesOverlay.classList.add('active');
+                    btnShinies.innerText = "[ X CLOSE ]";
+                    
+                    logrosOverlay.classList.remove('active');
+                    btnLogros.innerText = "[ LOGROS + ]";
+                }
+            } 
+            
+            else if (type === 'logros') {
+                // Si Logros ya está abierto, cerrarlo
+                if (logrosOverlay.classList.contains('active')) {
+                    logrosOverlay.classList.remove('active');
+                    btnLogros.innerText = "[ LOGROS + ]";
+                } else {
+                    // Abrir Logros, cerrar Shinies si está abierto
+                    logrosOverlay.classList.add('active');
+                    btnLogros.innerText = "[ X CLOSE ]";
+
+                    shiniesOverlay.classList.remove('active');
+                    btnShinies.innerText = "[ SHINIES + ]";
+                }
             }
         }
     </script>
