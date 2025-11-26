@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>D0RK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Terminal-style font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #03030b;
+      --bg-panel: #050515;
+      --text: #e2ffe5;
+      --text-dim: #8db68f;
+      --accent: #5cf489;
+      --accent-dim: #2ca35b;
+      --error: #ff6b7b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #101020 0, #000008 60%, #000000 100%);
+      color: var(--text);
+      font-family: "Source Code Pro", monospace;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      padding: 0.75rem;
+    }
+
+    .crt {
+      max-width: 900px;
+      width: 100%;
+      background: var(--bg-panel);
+      border-radius: 12px;
+      border: 2px solid #1b2721;
+      box-shadow:
+        0 0 0 1px #0a0e0c,
+        0 0 22px rgba(0, 255, 120, 0.15),
+        0 22px 60px rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+      padding: 0.75rem 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* CRT scanlines */
+    .crt::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 100% 3px;
+      opacity: 0.18;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .crt::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-shadow: 0 0 80px rgba(0, 255, 150, 0.22) inset;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    header {
+      padding: 0 0 0.4rem;
+      border-bottom: 1px solid #13211a;
+      margin-bottom: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    header span.title {
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    #log {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 0.35rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .line { margin: 0.05rem 0; }
+    .line.system { color: var(--text-dim); }
+    .line.location { color: var(--accent); }
+    .line.error { color: var(--error); }
+    .line.command { color: var(--accent-dim); }
+
+    #input-row {
+      margin-top: 0.35rem;
+      border-top: 1px solid #13211a;
+      padding-top: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.95rem;
+    }
+
+    #prompt {
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    #command-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+      padding: 0;
+    }
+
+    #command-input::placeholder {
+      color: #3c5141;
+    }
+
+    .hint-row {
+      margin-top: 0.2rem;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    kbd {
+      border: 1px solid #23362c;
+      padding: 0.1rem 0.3rem;
+      font-size: 0.7rem;
+      background: #090f0c;
+      color: var(--accent);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="crt">
+    <header>
+      <span class="title">JOSE CÓRDOBA · TEXT ADVENTURE</span>
+      <span>Type <strong>help</strong> for commands</span>
+    </header>
+
+    <main>
+      <div id="log"></div>
+
+      <div id="input-row">
+        <div id="prompt">&gt;</div>
+        <input id="command-input" type="text" autocomplete="off" spellcheck="false" autofocus />
+      </div>
+
+      <div class="hint-row">
+        <span>Try: <code>look</code>, <code>go north</code>, <code>about</code>, <code>leave</code></span>
+        <span><kbd>↑</kbd> / <kbd>↓</kbd> history</span>
+      </div>
+    </main>
+  </div>
+
+<script>
+/* ------------------------- WORLD DATA ------------------------- */
+
+const locations = {
+  clearing: {
+    name: "Forest Clearing",
+    description:
+      "You are in a small clearing surrounded by tall, pixelated trees.\n" +
+      "A faint glow pulses in the distance, like a monitor left on in another room.",
+    exits: { north: "studio" }
+  },
+  studio: {
+    name: "Illustrator's Studio",
+    description:
+      "A cozy studio bathed in soft cyan light. An iPad rests on a desk.\n" +
+      "Sketches of blue cats are pinned everywhere.",
+    exits: { south: "clearing", east: "gallery" }
+  },
+  gallery: {
+    name: "Digital Gallery",
+    description:
+      "Frames of shimmering light float in the air, each showing one of your illustrations.\n" +
+      "One depicts a cat surrounded by watercolor explosions.",
+    exits: { west: "studio" }
+  }
+};
+
+let currentLocation = "clearing";
+const inventory = [];
+
+/* --------------------------- LOGGING --------------------------- */
+
+const logEl = document.getElementById("log");
+const input = document.getElementById("command-input");
+
+function addLine(text, className = "") {
+  const div = document.createElement("div");
+  div.className = "line " + className;
+  div.textContent = text;
+  logEl.appendChild(div);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+function describeLocation() {
+  const loc = locations[currentLocation];
+  addLine(loc.name.toUpperCase(), "location");
+  addLine(loc.description, "system");
+  addLine("Exits: " + Object.keys(loc.exits).join(", "), "system");
+}
+
+/* ------------------------- COMMAND HANDLING ------------------------- */
+
+const history = [];
+let historyIndex = -1;
+
+function handleCommand(raw) {
+  const command = raw.trim();
+  if (!command) return;
+
+  history.push(command);
+  historyIndex = history.length;
+  addLine("> " + command, "command");
+
+  const lower = command.toLowerCase();
+
+  /* ----- SPECIAL COMMAND: life cycles ----- */
+  if (lower === "life cycles") {
+    addLine("d3d3Lmpvc2Vjb3Jkb2JhLmNvbS9zdWJpZGFzL2xpZmVjeWNsZXMucG5n", "system");
+    return;
+  }
+  /* ---------------------------------------- */
+
+  const [verb, ...rest] = lower.split(/\s+/);
+  const arg = rest.join(" ");
+
+  switch (verb) {
+    case "look":
+    case "l":
+      describeLocation();
+      break;
+
+    case "go":
+    case "walk":
+    case "move":
+      move(arg);
+      break;
+
+    case "north":
+    case "n":
+    case "south":
+    case "s":
+    case "east":
+    case "e":
+    case "west":
+    case "w":
+      move(verb);
+      break;
+
+    case "inventory":
+    case "i":
+      showInventory();
+      break;
+
+    case "help":
+      showHelp();
+      break;
+
+    case "about":
+      showAbout();
+      break;
+
+    case "portfolio":
+      showPortfolio();
+      break;
+
+    case "clear":
+      logEl.innerHTML = "";
+      break;
+
+    default:
+      addLine("I don't understand that command.", "error");
+  }
+}
+
+function normalizeDirection(dir) {
+  const d = dir.toLowerCase();
+  if (["north", "n"].includes(d)) return "north";
+  if (["south", "s"].includes(d)) return "south";
+  if (["east", "e"].includes(d)) return "east";
+  if (["west", "w"].includes(d)) return "west";
+  return null;
+}
+
+function move(direction) {
+  const dir = normalizeDirection(direction);
+  if (!dir) return addLine("Go where?", "error");
+
+  const loc = locations[currentLocation];
+  const next = loc.exits[dir];
+  if (!next) {
+    addLine("You walk a few steps, but that direction leads nowhere.", "system");
+    return;
+  }
+  currentLocation = next;
+  describeLocation();
+}
+
+function showInventory() {
+  if (inventory.length === 0)
+    addLine("You are carrying: nothing but curiosity.", "system");
+  else addLine("Inventory: " + inventory.join(", "), "system");
+}
+
+function showHelp() {
+  addLine("Available commands:", "system");
+  addLine("  look / l", "system");
+  addLine("  go <direction>", "system");
+  addLine("  north/south/east/west", "system");
+  addLine("  inventory / i", "system");
+  addLine("  about", "system");
+  addLine("  portfolio", "system");
+  addLine("  life cycles", "system");
+  addLine("  clear", "system");
+}
+
+function showAbout() {
+  addLine("You sense an artist nearby...", "system");
+  addLine("Jose Córdoba – illustrator of gentle cats, surreal colors,", "system");
+  addLine("and digital watercolor vibes.", "system");
+}
+
+function showPortfolio() {
+  addLine('The air whispers: "Visit https://www.josecordoba.com"', "system");
+}
+
+/* ---------------------------- INPUT EVENTS ---------------------------- */
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    const v = input.value;
+    input.value = "";
+    handleCommand(v);
+  }
+
+  if (e.key === "ArrowUp") {
+    if (historyIndex > 0) historyIndex--;
+    input.value = history[historyIndex] || "";
+    e.preventDefault();
+  }
+
+  if (e.key === "ArrowDown") {
+    if (historyIndex < history.length - 1) historyIndex++;
+    else historyIndex = history.length;
+    input.value = history[historyIndex] || "";
+    e.preventDefault();
+  }
+});
+
+/* ------------------------------ INTRO ------------------------------ */
+
+function intro() {
+  addLine("D0RK · v1.0", "location");
+  addLine("You awaken to the hum of a monitor in the dark.", "system");
+  addLine("Type 'help' to begin.", "system");
+  addLine("", "system");
+  describeLocation();
+}
+
+intro();
+</script>
+
+</body>
+</html>
