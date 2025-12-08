@@ -1,302 +1,96 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>?</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>42</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      color-scheme: dark;
+    }
 
-    <style>
-        /* --- VARIABLES & RESET --- */
-        :root {
-            --bg: #000000;
-            --fg: #FFFFFF;
-            --grid-line: 1px solid #333;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: crosshair; 
-        }
+    body {
+      min-height: 100vh;
+      background-color: #000000; /* true black, OLED-friendly */
+      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
 
-        body {
-            background-color: var(--bg);
-            color: var(--fg);
-            font-family: 'DotGothic16', monospace;
-            font-size: 18px;
-            overflow: hidden; 
-            text-transform: uppercase;
-            -webkit-font-smoothing: none;
-            height: 100vh;
-            width: 100vw;
-        }
+    main {
+      width: 100%;
+      max-width: 700px;
+    }
 
-        a { text-decoration: none; color: inherit; cursor: pointer; }
-        button { background: none; border: none; color: inherit; font-family: inherit; font-size: inherit; cursor: pointer; text-transform: uppercase; transition: opacity 0.2s;}
-        button:hover { opacity: 0.6; }
+    p {
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      font-size: 0.98rem;
+      color: #e0e0e0;
+    }
 
-        /* --- NAVEGACIÓN FIJA (Esquinas) --- */
-        .nav-fixed {
-            position: fixed;
-            z-index: 300; 
-            padding: 0;
-        }
+    h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+      color: #b3b3b3;
+    }
 
-        .top-left { top: 0; left: 0; }
-        
-        /* Ajuste para múltiples botones en la derecha */
-        .top-right { 
-            top: 0; 
-            right: 0; 
-            text-align: right; 
-            display: flex;
-            gap: 20px; /* Espacio entre botones */
-        }
-        
-        .bottom-left { bottom: 0; left: 0; }
-        .bottom-right { bottom: 0; right: 0; }
+    ul {
+      list-style: none;
+    }
 
-        .blink { animation: blinker 1.5s step-end infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
+    li + li {
+      margin-top: 0.4rem;
+    }
 
-        /* --- CONTENIDO PRINCIPAL --- */
-        main {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
-        }
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      border-bottom: 1px solid #444;
+      padding-bottom: 2px;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
 
-        .project-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            width: 100%;
-            padding: 1.5vh 0;
-            border-bottom: 1px solid transparent;
-            transition: all 0.2s ease;
-        }
-
-        .project-name { font-size: 4vw; line-height: 1; }
-        .project-cat { font-size: 1rem; text-align: right; }
-
-        .project-row:hover {
-            background-color: var(--fg);
-            color: var(--bg);
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-
-        /* --- CLASES GENERALES PARA OVERLAYS --- */
-        .overlay-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg);
-            z-index: 200;
-            display: flex;
-            flex-direction: column;
-            transform: translateY(-100%); /* Oculto arriba */
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            overflow-y: auto;
-            padding-top: 60px; /* Espacio para no tapar el menú */
-        }
-
-        .overlay-screen.active {
-            transform: translateY(0);
-        }
-
-        /* --- ESTILOS ESPECÍFICOS: SHINIES --- */
-        .poke-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            width: 100%;
-            border-top: var(--grid-line);
-        }
-
-        .poke-item {
-            aspect-ratio: 1/1;
-            border-right: var(--grid-line);
-            border-bottom: var(--grid-line);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            flex-direction: column;
-        }
-
-        .poke-item img {
-            width: 60%;
-            height: 60%;
-            object-fit: contain;
-            filter: grayscale(100%) contrast(1.2);
-            transition: filter 0.3s;
-            image-rendering: pixelated;
-        }
-
-        .poke-item:hover img {
-            filter: grayscale(0%) drop-shadow(0 0 5px rgba(255,255,255,0.5));
-        }
-
-        .poke-name {
-            position: absolute;
-            bottom: 5px;
-            left: 5px;
-            font-size: 0.7rem;
-            opacity: 0.5;
-        }
-
-        /* --- ESTILOS ESPECÍFICOS: LOGROS --- */
-        .logros-list {
-            width: 100%;
-            border-top: var(--grid-line);
-        }
-
-        .logro-item {
-            width: 100%;
-            padding: 30px 10px;
-            border-bottom: var(--grid-line);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .logro-title {
-            font-size: 2rem;
-        }
-
-        .logro-bar {
-            font-family: monospace;
-            opacity: 0.5;
-            letter-spacing: 2px;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .project-row { flex-direction: column; padding: 20px 0; }
-            .project-name { font-size: 3rem; }
-            .nav-fixed, .project-row, .logro-item { padding-left: 5px; padding-right: 5px; }
-            .poke-grid { grid-template-columns: repeat(3, 1fr); }
-            
-            /* Ajuste menú móvil */
-            .top-right { gap: 10px; font-size: 0.9rem; }
-            .logro-title { font-size: 1.5rem; }
-        }
-    </style>
+    a:hover,
+    a:focus-visible {
+      color: #fafafa;
+      border-color: #ffffff;
+    }
+  </style>
 </head>
 <body>
+  <main>
+    <p>
+      Too cheap to pay for Linktree, too irrelevant to opt for the legendary
+      blue check, so here's my official stuff, as if anyone would care.
+    </p>
 
-    <!-- NAV FIJO -->
-    <div class="nav-fixed top-left">?<span class="blink">_</span></div>
-    
-    <div class="nav-fixed top-right">
-        <!-- Botones de Navegación -->
-        <button onclick="toggleOverlay('logros')" id="btn-logros">[ KUDOS + ]</button>
-        <button onclick="toggleOverlay('shinies')" id="btn-shinies">[ SHINIES + ]</button>
-    </div>
-
-    <div class="nav-fixed bottom-left">INDEX</div>
-    <div class="nav-fixed bottom-right">©2025</div>
-
-    <!-- CONTENIDO PRINCIPAL (HOME) -->
-    <main>
-        <a href="https://bsky.app/profile/jacr.bsky.social" target="_blank" class="project-row">
-            <span class="project-name">BLUESKY</span>
-            <span class="project-cat">only one</span>
-        </a>
-        <br>
-             <a href="https://www.josecordoba.com/d0rk.html" target="_blank" class="project-row">
-            <span class="project-name">D0RK</span>
-            <span class="project-cat">text-based adventure</span>
-        </a>
-    </main>
-
-    <!-- 1. OVERLAY DE POKEMON (SHINIES) -->
-    <div id="overlay-shinies" class="overlay-screen">
-        <div class="poke-grid">
-            <!-- Pokes -->
-            <div class="poke-item"><span class="poke-name">006</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/6.png" alt="Charizard"></div>
-            <div class="poke-item"><span class="poke-name">025</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png" alt="Pikachu"></div>
-            <div class="poke-item"><span class="poke-name">094</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/94.png" alt="Gengar"></div>
-            <div class="poke-item"><span class="poke-name">130</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/130.png" alt="Gyarados"></div>
-            <div class="poke-item"><span class="poke-name">150</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/150.png" alt="Mewtwo"></div>
-            <div class="poke-item"><span class="poke-name">249</span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/249.png" alt="Lugia"></div>
-        </div>
-    </div>
-
-    <!-- 2. OVERLAY DE LOGROS -->
-    <div id="overlay-logros" class="overlay-screen">
-        <div class="logros-list">
-            
-            <!-- Logro 1 -->
-            <div class="logro-item">
-                <div class="logro-title">KANTO DEX</div>
-                <div class="logro-bar">[////////////////////] 100% COMPLETE</div>
-            </div>
-
-            <!-- Logro 2 -->
-            <div class="logro-item">
-                <div class="logro-title">JOHTO DEX</div>
-                <div class="logro-bar">[////////////////////] 100% COMPLETE</div>
-            </div>
-
-            <!-- Logro 3 -->
-            <div class="logro-item">
-                <div class="logro-title">HOENN DEX</div>
-                <div class="logro-bar">[////////////////////] 100% COMPLETE</div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- LOGICA JAVASCRIPT -->
-    <script>
-        function toggleOverlay(type) {
-            const shiniesOverlay = document.getElementById('overlay-shinies');
-            const logrosOverlay = document.getElementById('overlay-logros');
-            
-            const btnShinies = document.getElementById('btn-shinies');
-            const btnLogros = document.getElementById('btn-logros');
-
-            if (type === 'shinies') {
-                // Si Shinies ya está abierto, cerrarlo
-                if (shiniesOverlay.classList.contains('active')) {
-                    shiniesOverlay.classList.remove('active');
-                    btnShinies.innerText = "[ SHINIES + ]";
-                } else {
-                    // Abrir Shinies, cerrar Logros si está abierto
-                    shiniesOverlay.classList.add('active');
-                    btnShinies.innerText = "[ X CLOSE ]";
-                    
-                    logrosOverlay.classList.remove('active');
-                    btnLogros.innerText = "[ LOGROS + ]";
-                }
-            } 
-            
-            else if (type === 'logros') {
-                // Si Logros ya está abierto, cerrarlo
-                if (logrosOverlay.classList.contains('active')) {
-                    logrosOverlay.classList.remove('active');
-                    btnLogros.innerText = "[ LOGROS + ]";
-                } else {
-                    // Abrir Logros, cerrar Shinies si está abierto
-                    logrosOverlay.classList.add('active');
-                    btnLogros.innerText = "[ X CLOSE ]";
-
-                    shiniesOverlay.classList.remove('active');
-                    btnShinies.innerText = "[ SHINIES + ]";
-                }
-            }
-        }
-    </script>
-
+    <section>
+      <h2>My Stuff</h2>
+      <ul>
+        <li>
+          <a
+            href="https://bsky.app/profile/jacr.bsky.social"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Bluesky
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
