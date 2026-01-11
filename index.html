@@ -2,85 +2,114 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Countdown</title>
-
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>THE END OF EVANGELION</title>
   <style>
-    :root{
-      --bg:#fff;   /* fondo blanco */
-      --fg:#000;   /* texto negro para contraste */
-    }
-
-    html, body{
-      height: 100%;
-      margin: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body{
+      background:#000;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
 
     .wrap{
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2.5vh 2.5vw;
-      box-sizing: border-box;
-    }
-
-    .countdown-shell{
-      width: min(1400px, 100%);
+      width: min(1200px, 92vw);
       text-align: center;
-      color: var(--fg);
+      line-height: 1.05;
+      user-select: none;
     }
 
-    .tickcounter{
-      color: var(--fg) !important;
-      filter: none;
-      width: 100% !important;
-      left: 0 !important;
-      margin: 0 auto !important;
-      position: relative !important;
-      display: block !important;
-      height: 0 !important;
-      padding-bottom: 55vh !important;
+    /* Tipografía que “ocupa” la pantalla */
+    h1{
+      margin: 0 0 2.5vh 0;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: clamp(20px, 5vw, 64px);
+      opacity: 0.95;
     }
 
-    @media (max-width: 768px){
-      .wrap{ padding: 2vh 3vw; }
-      .tickcounter{ padding-bottom: 68vh !important; }
+    #timer, #done{
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      font-variant-numeric: tabular-nums;
+      text-transform: uppercase;
+      /* Muy grande y adaptable */
+      font-size: clamp(48px, 10vw, 160px);
+      margin: 0;
+      padding: 0;
+      white-space: nowrap;
     }
 
-    @media (min-width: 1200px){
-      .tickcounter{ padding-bottom: 60vh !important; }
+    /* En pantallas muy estrechas, permitir salto */
+    @media (max-width: 420px){
+      #timer, #done { white-space: normal; }
+    }
+
+    .sub{
+      margin-top: 2.5vh;
+      opacity: 0.7;
+      font-size: clamp(12px, 2.3vw, 18px);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <section class="countdown-shell" aria-label="Countdown">
-      <script>
-        (function(d, s, id) {
-          var js, pjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s);
-          js.id = id;
-          js.src = "//www.tickcounter.com/static/js/loader.js";
-          pjs.parentNode.insertBefore(js, pjs);
-        }(document, "script", "tickcounter-sdk"));
-      </script>
+  <main class="wrap" aria-live="polite">
+    <h1>THE END OF EVANGELION</h1>
 
-      <a
-        data-type="countdown"
-        data-id="9138649"
-        class="tickcounter"
-        title="THE END OF EVANGELION."
-        href="//www.tickcounter.com/"
-      >
-        THE END OF EVANGELION.
-      </a>
-    </section>
+    <p id="timer">--:--:--</p>
+    <p id="done" style="display:none;">I CAN (NOT) BE REPLACED.</p>
+
+    <div class="sub" id="targetInfo"></div>
   </main>
+
+  <script>
+    // Objetivo: 12 de enero de 2026, 07:00:00 (hora local del dispositivo)
+    const target = new Date(2026, 0, 12, 7, 0, 0, 0); // (año, mes-0based, día, hora, min, seg, ms)
+
+    const timerEl = document.getElementById("timer");
+    const doneEl  = document.getElementById("done");
+    const infoEl  = document.getElementById("targetInfo");
+
+    function pad2(n){ return String(n).padStart(2, "0"); }
+
+    function tick(){
+      const now = new Date();
+      let diffMs = target - now;
+
+      if (diffMs <= 0){
+        timerEl.style.display = "none";
+        doneEl.style.display = "block";
+        infoEl.textContent = ""; // opcional: limpiar
+        return;
+      }
+
+      const totalSeconds = Math.floor(diffMs / 1000);
+
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      // Horas pueden ser > 99, así que no las limitamos a 2 dígitos
+      timerEl.textContent = `${hours}:${pad2(minutes)}:${pad2(seconds)}`;
+
+      // Info opcional
+      infoEl.textContent = `Objetivo: ${target.toLocaleString()}`;
+
+      // Sincroniza el “tick” para que cambie cercano al siguiente segundo real
+      const drift = diffMs % 1000;
+      setTimeout(tick, Math.max(50, drift));
+    }
+
+    tick();
+  </script>
 </body>
 </html>
