@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>yes, that should work. </title>
+  <style>
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted: rgba(255,255,255,.75);
+      --border: rgba(255,255,255,.14);
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.5;
+    }
+
+    .wrap{
+      width: min(920px, 92vw);
+      margin: 0 auto;
+      padding: clamp(20px, 4vw, 56px) 0;
+    }
+
+    h1{
+      margin: 0 0 clamp(14px, 2.5vw, 22px);
+      font-size: clamp(28px, 5vw, 44px);
+      letter-spacing: .2px;
+    }
+
+    section{
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: clamp(16px, 3.2vw, 28px);
+      margin: 0 0 clamp(14px, 2.8vw, 22px);
+      background: rgba(255,255,255,.02);
+    }
+
+    h2{
+      margin: 0 0 12px;
+      font-size: clamp(18px, 3.6vw, 28px);
+    }
+
+    ul{
+      margin: 0;
+      padding-left: 1.2em;
+      font-size: clamp(16px, 2.7vw, 20px);
+    }
+
+    li{ margin: 8px 0; }
+
+    a{
+      color: var(--fg);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover{ opacity: .85; }
+
+    .note{
+      margin-top: 10px;
+      font-size: clamp(13px, 2.2vw, 16px);
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <h1>yes, that should work.</h1>
+
+    <section aria-labelledby="muro">
+      <h2 id="muro">hall of fame</h2>
+      <ul>
+        <li>Hotline Miami</li>
+        <li>Enter the Gungeon</li>
+        <li>Katana Zero</li>
+        <li>The Messenger</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="cuentos">
+      <h2 id="cuentos">accounts</h2>
+      <ul>
+        <li>
+          Blue Sky —
+          <a href="https://bsky.app/profile/jacr.bsky.social" target="_blank" rel="noopener noreferrer">
+            @jacr
+          </a>
+        </li>
+      </ul>
+      <div class="note">accounts not listed here are not lwned by me.</div>
+    </section>
+  </main>
+</body>
+</html>
