@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream // josecordoba.com</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#000000',
+                            card: '#121212',
+                            border: '#262626',
+                            text: '#f3f4f6',
+                            muted: '#9ca3af'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-dark-text min-h-screen font-sans antialiased selection:bg-zinc-800">
+
+    <main class="max-w-xl mx-auto px-4 py-8 sm:py-12 border-x border-dark-border min-h-screen flex flex-col">
+        
+        <!-- Bio / Header -->
+        <header class="pb-6 border-b border-dark-border mb-6">
+            <h1 class="text-xl font-bold tracking-tight">José Córdoba</h1>
+            <p class="text-sm text-dark-muted mt-1">Personal micro-blog stream. Unfiltered thoughts, notes, and logs.</p>
+        </header>
+
+        <!-- Feed Container -->
+        <div id="feed" class="space-y-6 flex-1">
+            <!-- Posts will be injected here -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="pt-8 mt-12 border-t border-dark-border text-xs text-dark-muted flex justify-between items-center">
+            <span>&copy; <script>document.write(new Date().getFullYear())</script> José Córdoba</span>
+            <a href="https://github.com" target="_blank" rel="noopener" class="hover:underline">GitHub</a>
+        </footer>
+    </main>
+
+    <script>
+        // EDIT YOUR POSTS HERE: Add new thoughts to the top of the array
+        const postsData = [
+            {
+                date: "2026-10-06T20:00:00Z",
+                content: "Setting up this lightweight stream feed directly on the root of josecordoba.com. Zero bloat, fast load times."
+            },
+            {
+                date: "2026-10-05T14:30:00Z",
+                content: "Just a quick test post to see how the Twitter-like interface looks in dark mode."
+            }
+        ];
+
+        function renderFeed() {
+            const feedContainer = document.getElementById('feed');
+            
+            if (postsData.length ===: 0) {
+                feedContainer.innerHTML = `<p class="text-dark-muted text-center py-12">No posts yet.</p>`;
+                return;
+            }
+
+            feedContainer.innerHTML = postsData.map(post => {
+                const dateObj = new Date(post.date);
+                const formattedDate = dateObj.toLocaleDateString('en-US', { 
+                    month: 'short', 
+                    day: 'numeric',
+                    year: 'numeric'
+                });
+
+                return `
+                    <article class="p-4 rounded-xl bg-dark-card border border-dark-border hover:border-zinc-700 transition-colors">
+                        <div class="flex justify-between items-center text-xs text-dark-muted mb-2">
+                            <span>@josecordoba</span>
+                            <time datetime="${post.date}">${formattedDate}</time>
+                        </div>
+                        <p class="text-sm sm:text-base leading-relaxed whitespace-pre-wrap">${escapeHTML(post.content)}</p>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'}[tag] || tag)
+            );
+        }
+
+        document.addEventListener('DOMContentLoaded', renderFeed);
+    </script>
+</body>
+</html>
