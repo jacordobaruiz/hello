@@ -1,36 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    margin: 0;
-    background: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
 
-  .content {
-    font-size: 10vw; /* BIG */
-    line-height: 1.2;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+
+  <title>hi, how are you</title>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      box-sizing: border-box;
+      padding: 24px;
+
+      background: #ffffff;
+      color: #111111;
+
+      font-family: "Geist", Arial, sans-serif;
+      text-align: left;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #111111;
+        color: #ffffff;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="content">
-    Estoy:<br>
-    <table>
-    <tr>
-        <td>BlUESKY</td>
-        <td>jacr</td>
-    </tr>
-</table>
-*Unicamente.
-  </div>
+  <h1>MIS CUENTAS:<BR>
+    Tweet.app: jacr<br>
+    Bluesky: jacr
+  </h1>
+  </h1>
 </body>
 </html>
